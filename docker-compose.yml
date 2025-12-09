@@ -1,0 +1,34 @@
+
+services:
+
+  storybook:
+    build:
+      context: .
+      dockerfile: ./docker/dev/Dockerfile
+
+    command: npm run storybook -- --no-open
+
+    volumes:
+      - .:/app
+
+    ports:
+      - "6006:6006"
+
+    environment:
+      NODE_ENV: development
+
+  email:
+    build:
+      context: .
+      dockerfile: ./docker/dev/Dockerfile
+
+    command: email preview --no-open ./src/email/templates --host
+
+    volumes:
+      - .:/app
+
+    ports:
+      - "55420:55420"
+
+    environment:
+      NODE_ENV: development
