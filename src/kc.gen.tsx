@@ -9,9 +9,9 @@
 
 import { lazy, Suspense, type ReactNode } from "react";
 
-export type ThemeName = "Tailcloakify";
+export type ThemeName = "FeedsFun";
 
-export const themeNames: ThemeName[] = ["Tailcloakify"];
+export const themeNames: ThemeName[] = ["FeedsFun"];
 
 export type KcEnvName =
     | "styles"
