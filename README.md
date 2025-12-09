@@ -1,3 +1,6 @@
+
+**This is a fork of Tailcloakify for the [feeds.fun](https://feeds.fun/) needs. Most likely you need the original [Tailcloakify repository](https://github.com/ALMiG-Kompressoren-GmbH/tailcloakify)**
+
 <p align="center">
     <i>🚀 <a href="https://github.com/ALMiG-Kompressoren-GmbH/tailcloakify">Tailcloakify</a> V1  🚀</i>
     <br/>
@@ -6,8 +9,8 @@
 <img src="./public/Tailcloakify-login-page.png" alt="keycloak theme config" width="1905">
 <img src="./public/Tailcloakify-email-template.png" alt="keycloak theme config" width="1905">
 
-Tailcloakify is a [Keycloak](https://github.com/keycloak/keycloak) Theme that is based on 
-[Keycloakify](https://github.com/keycloakify/keycloakify), layered with [TailwindCSS](https://github.com/tailwindlabs/tailwindcss) and inspired by [Keywind](https://github.com/lukin/keywind) 
+Tailcloakify is a [Keycloak](https://github.com/keycloak/keycloak) Theme that is based on
+[Keycloakify](https://github.com/keycloakify/keycloakify), layered with [TailwindCSS](https://github.com/tailwindlabs/tailwindcss) and inspired by [Keywind](https://github.com/lukin/keywind)
 UI design approach.
 
 # How to Use
@@ -15,10 +18,10 @@ UI design approach.
 1. Place the provided JAR file in the <keycloak-home>/providers/ directory or use the example Dockerfile from this repository to add the provided JAR file into your Docker Image.
 2. Set environment variables or localization messages to customize the theme with the out of the box configuration functionalities.
 3. Restart your Keycloak server or deploy your built docker image to your server.
-4. Log in to the Keycloak Admin Console.  
-Go to Realm Settings > Themes.  
-Select the `Tailcloakify` Login theme from the dropdown.  
-Select the `Tailcloakify` Email theme from the dropdown.   
+4. Log in to the Keycloak Admin Console.
+Go to Realm Settings > Themes.
+Select the `Tailcloakify` Login theme from the dropdown.
+Select the `Tailcloakify` Email theme from the dropdown.
 Save your settings.
 
 # Supported Login Pages & Email Templates
@@ -73,7 +76,7 @@ Some customizations are possible through Keycloak's Localization System, allowin
 | showSocialProvidersOnRegister | The localized enabled alternative to env: TAILCLOAKIFY_SHOW_SOCIAL_PROVIDERS_ON_REGISTER |
 
 **_Note_**: Unlike the Login theme, the Email theme does not include a feature for adding localized variables directly from the Keycloak admin console. Therefore, the email environment variables in the above section
-denoted with the prefix `TAILCLOAKIFY_EMAIL_` can only be configured as arguments in a Dockerfile, or Docker Compose yml configuration. 
+denoted with the prefix `TAILCLOAKIFY_EMAIL_` can only be configured as arguments in a Dockerfile, or Docker Compose yml configuration.
 
 
 ## Using a child Theme
@@ -130,7 +133,7 @@ Note: _We have used [JSX Email](https://jsx.email/docs/core/cli) to develop the 
 
 ## Building the theme
 
-You need to have [Maven](https://maven.apache.org/) installed to build the theme (Maven >= 3.1.1, Java >= 7).  
+You need to have [Maven](https://maven.apache.org/) installed to build the theme (Maven >= 3.1.1, Java >= 7).
 The `mvn` command must be in the $PATH.
 
 - On macOS: `brew install maven`
@@ -141,7 +144,7 @@ The `mvn` command must be in the $PATH.
   npm run build-keycloak-theme
 ```
 
-Note that by default Keycloakify generates multiple .jar files for different versions of Keycloak.  
+Note that by default Keycloakify generates multiple .jar files for different versions of Keycloak.
 You can customize this behavior, see documentation [here](https://docs.keycloakify.dev/features/compiler-options/keycloakversiontargets).
 
 ## GitHub Actions
