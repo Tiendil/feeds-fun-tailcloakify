@@ -1,6 +1,6 @@
-// THIS FILE CHANGED FOR FEEDS FUN NEDS:
+// THIS FILE CHANGED FOR FEEDS.FUN NEEDS:
 // - removed unused languages
-// - added / updated custom translations
+// - added/updated custom translations
 
 import { i18nBuilder } from "keycloakify/login";
 import type { ThemeName } from "../kc.gen";
