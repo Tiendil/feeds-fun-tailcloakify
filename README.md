@@ -4,8 +4,14 @@
 Part of commands duplicated in docker compose:
 
 ```
+# preview login pages
 docker compose up storybook
+
+# preview emails
 docker compose up email
+
+# build the theme
+docker compose up build-theme
 ```
 
 ---

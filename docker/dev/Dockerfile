@@ -2,6 +2,9 @@ FROM node:20-bullseye
 
 WORKDIR /app
 
+# Install Maven, it is required for building the theme
+RUN apt update && apt install -y maven
+
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
 
 # Install deps into a separate directory so they are not shadowed

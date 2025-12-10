@@ -32,3 +32,16 @@ services:
 
     environment:
       NODE_ENV: development
+
+  build-theme:
+    build:
+      context: .
+      dockerfile: ./docker/dev/Dockerfile
+
+    command: npm run build-keycloak-theme
+
+    volumes:
+      - .:/app
+
+    environment:
+      NODE_ENV: development
