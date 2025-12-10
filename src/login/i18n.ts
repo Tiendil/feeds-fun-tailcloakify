@@ -31,8 +31,10 @@ const { useI18n, ofTypeI18n } = i18nBuilder
             p2incOrgsText: "You have been invited to join the following organizations. Uncheck those you wish to decline.",
             loginOtpOneTimeLabel: "Please Input your One-time code",
 
+            //////////////////////
             // Feeds Fun overrides
             doLogIn: "Continue",
+            //////////////////////
         }
     })
     .build();

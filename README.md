@@ -1,6 +1,15 @@
 
 **This is a fork of Tailcloakify for the [feeds.fun](https://feeds.fun/) needs. Most likely you need the original [Tailcloakify repository](https://github.com/ALMiG-Kompressoren-GmbH/tailcloakify)**
 
+Part of commands duplicated in docker compose:
+
+```
+docker compose up storybook
+docker compose up email
+```
+
+---
+
 <p align="center">
     <i>🚀 <a href="https://github.com/ALMiG-Kompressoren-GmbH/tailcloakify">Tailcloakify</a> V1  🚀</i>
     <br/>

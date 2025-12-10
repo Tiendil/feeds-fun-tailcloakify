@@ -1,3 +1,7 @@
+// THIS FILE CHANGED FOR FEEDS.FUN NEEDS
+// - added custom favicon
+// - added custom header logo
+
 import { useEffect } from "react";
 import { clsx } from "keycloakify/tools/clsx";
 import { kcSanitize } from "keycloakify/lib/kcSanitize";
@@ -8,6 +12,12 @@ import { useInitialize } from "keycloakify/login/Template.useInitialize";
 import type { I18n } from "./i18n";
 import type { KcContext } from "./KcContext";
 import useSetCookieConsent from "./useSetCookieConsent.tsx";
+
+/////////////////
+// Feeds Fun code
+import favicon from "./assets/feeds-fun/favicon.ico";
+import headerLogo from "./assets/feeds-fun/header-logo.png";
+/////////////////
 
 export default function Template(props: TemplateProps<KcContext, I18n>) {
     const {
@@ -38,8 +48,8 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
 
     // Load Favicon
     useEffect(() => {
-        const url: string | undefined =
-            (advancedMsgStr("faviconUrl") !== "faviconUrl" ? advancedMsgStr("faviconUrl") : null) || kcContext.properties.TAILCLOAKIFY_FAVICON_URL;
+        const url: string | undefined = favicon;
+      // (advancedMsgStr("faviconUrl") !== "faviconUrl" ? advancedMsgStr("faviconUrl") : null) || kcContext.properties.TAILCLOAKIFY_FAVICON_URL;
 
         if (url) {
             let link = document.querySelector("link[rel~='icon']") as HTMLLinkElement | null;
@@ -148,7 +158,7 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
     const backgroundLogoUrl = advancedMsgStr("backgroundLogoUrl") !== "backgroundLogoUrl" ? advancedMsgStr("backgroundLogoUrl") : null;
     const backgroundVideoUrl = advancedMsgStr("backgroundVideoUrl") !== "backgroundVideoUrl" ? advancedMsgStr("backgroundVideoUrl") : null;
 
-    const headerLogoUrl = advancedMsgStr("headerLogoUrl") !== "headerLogoUrl" ? advancedMsgStr("headerLogoUrl") : null;
+    const headerLogoUrl = advancedMsgStr("headerLogoUrl") !== "headerLogoUrl" ? advancedMsgStr("headerLogoUrl") : headerLogo;
 
     const { isReadyToRender } = useInitialize({ kcContext, doUseDefaultCss });
 
