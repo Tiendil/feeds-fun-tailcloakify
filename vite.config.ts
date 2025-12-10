@@ -13,7 +13,7 @@ export default defineConfig({
         react(),
         keycloakify({
             accountThemeImplementation: "none",
-            themeName: "Tailcloakify",
+            themeName: "FeedsFun",
             environmentVariables: [
                 { name: "styles", default: "" },
                 { name: "scripts", default: "" },
