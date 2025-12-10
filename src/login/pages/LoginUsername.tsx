@@ -1,3 +1,5 @@
+// THIS FILE CHANGED FOR FEEDS.FUN NEEDS:
+// - added subheader under the main header
 import { useState } from "react";
 import { kcSanitize } from "keycloakify/lib/kcSanitize";
 import { clsx } from "keycloakify/tools/clsx";
@@ -36,7 +38,16 @@ export default function LoginUsername(props: PageProps<Extract<KcContext, { page
             doUseDefaultCss={doUseDefaultCss}
             classes={classes}
             displayMessage={!messagesPerField.existsError("username")}
-            headerNode={msg("doLogIn")}
+            //////////////////////
+            // Feeds Fun overrides
+            // headerNode={msg("doLogIn")}
+            headerNode={
+              <>
+                <span>{msg("doLogIn")}</span>
+                <span className="mt-2 block text-sm text-secondary-600">{msg("doLogInSubtitle")}</span>
+              </>
+            }
+            /////////////////////
             displayInfo={realm.password && realm.registrationAllowed && !registrationDisabled}
             infoNode={
                 <div id="kc-registration-container" className={"space-y-4"}>

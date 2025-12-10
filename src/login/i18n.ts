@@ -33,7 +33,8 @@ const { useI18n, ofTypeI18n } = i18nBuilder
 
             //////////////////////
             // Feeds Fun overrides
-            doLogIn: "Continue",
+            doLogIn: "Continue with Feeds Fun",
+            doLogInSubtitle: "We'll send you a login link — no password needed."
             //////////////////////
         }
     })
