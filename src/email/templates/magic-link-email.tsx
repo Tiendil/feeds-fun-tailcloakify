@@ -1,3 +1,5 @@
+// THIS FILE CHANGED FOR FEEDS.FUN NEEDS:
+// - fixed magic link url
 import { render, Text } from "jsx-email";
 import { EmailLayout } from "../layout";
 import { GetSubject, GetTemplate, GetTemplateProps } from "keycloakify-emails";
@@ -35,7 +37,9 @@ export const Template = ({ locale, t }: TemplateProps) => (
         <Text style={paragraph}>
             <p>{t("magic-link-email.messageBody", { realmName: exp("realmName") })}</p>
             <p>
-                <a href={exp("url.loginUrl")}>{t("magic-link-email.magicLink")}</a>
+              {/* Feeds Fun changes */}
+              {/* @ts-expect-error */}
+              <a href={exp("magicLink")}>{t("magic-link-email.magicLink")}</a>
             </p>
         </Text>
     </EmailLayout>
