@@ -1,3 +1,5 @@
+// THIS FILE CHANGED FOR FEEDS.FUN NEEDS:
+// - changed themeName
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { keycloakify } from "keycloakify/vite-plugin";
