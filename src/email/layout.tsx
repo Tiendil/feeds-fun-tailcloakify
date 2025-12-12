@@ -14,7 +14,7 @@ const currentYear = new Date().getFullYear();
 const backgroundImage = exp("properties.TAILCLOAKIFY_EMAIL_BACKGROUND_IMAGE_URL");
 // const emailLogo = exp("properties.TAILCLOAKIFY_EMAIL_LOGO");
 const templateFont = exp("properties.TAILCLOAKIFY_EMAIL_FONT_FAMILY");
-const contactEmail = exp("properties.TAILCLOAKIFY_EMAIL_CONTACT");
+// const contactEmail = exp("properties.TAILCLOAKIFY_EMAIL_CONTACT");
 
 export const EmailLayout = ({
     locale,
@@ -141,7 +141,7 @@ export const EmailLayout = ({
                                     >
                                         {t("footer.disclaimer", {
                                             realmName: c.realmName,
-                                            contactEmail: contactEmail
+                                            contactEmail: c.contactEmail
                                         })}
                                     </td>
                                 </tr>
