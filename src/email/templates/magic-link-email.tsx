@@ -5,7 +5,7 @@
 import { render, Text } from "jsx-email";
 import { EmailLayout } from "../layout";
 import { GetSubject, GetTemplate, GetTemplateProps } from "keycloakify-emails";
-import { variablesHelper } from "../util/VariablesHelper";
+// import { variablesHelper } from "../util/VariablesHelper";
 import i18n, { TFunction } from "i18next";
 import { previewLocale } from "../util/previewLocale";
 // Feeds Fun preview constants
@@ -27,7 +27,7 @@ export const previewProps: TemplateProps = {
 
 export const templateName = "Magic Link";
 
-const { exp } = variablesHelper("magic-link-email.ftl");
+// const { exp } = variablesHelper("magic-link-email.ftl");
 
 export const Template = ({ locale, t }: TemplateProps) => (
     <EmailLayout

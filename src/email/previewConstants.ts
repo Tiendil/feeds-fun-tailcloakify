@@ -11,4 +11,4 @@ const _magicLinkExample = "https://idp.keycloak.local/realms/dev/login-actions/a
 export const baseUrl = import.meta.isJsxEmailPreview ? '/assets/' : exp("url.resourcesUrl") + "/";
 export const realmName = import.meta.isJsxEmailPreview ? _projectName : exp("realmName");
 export const contactEmail = _contactEmail;
-export const magicLink = import.meta.isJsxEmailPreview ? _magicLinkExample : exp("magicLink");
+export const magicLink = import.meta.isJsxEmailPreview ? _magicLinkExample : (exp as any)("magicLink");
