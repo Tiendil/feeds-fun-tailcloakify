@@ -1,3 +1,5 @@
+// THIS FILE CHANGED FOR FEEDS.FUN NEEDS:
+// - logo image changed
 import { Body, Container, Head, Html, Preview, Tailwind } from "jsx-email";
 import { PropsWithChildren, ReactNode } from "react";
 import { createVariablesHelper } from "keycloakify-emails/variables";
@@ -6,9 +8,14 @@ import i18n from "./i18n";
 const { exp } = createVariablesHelper("email-test.ftl");
 const currentYear = new Date().getFullYear();
 const backgroundImage = exp("properties.TAILCLOAKIFY_EMAIL_BACKGROUND_IMAGE_URL");
-const emailLogo = exp("properties.TAILCLOAKIFY_EMAIL_LOGO");
+// const emailLogo = exp("properties.TAILCLOAKIFY_EMAIL_LOGO");
 const templateFont = exp("properties.TAILCLOAKIFY_EMAIL_FONT_FAMILY");
 const contactEmail = exp("properties.TAILCLOAKIFY_EMAIL_CONTACT");
+
+////////////////////
+// Feeds Fun changes
+const baseUrl = import.meta.isJsxEmailPreview ? '/assets/' : 'https://assets.example.com/';  // TODO
+////////////////////
 
 export const EmailLayout = ({
     locale,
@@ -51,8 +58,8 @@ export const EmailLayout = ({
                             border={0}
                             align="center"
                             style={{
-                                paddingTop: "2.5rem",
-                                paddingBottom: "2.5rem",
+                                paddingTop: "1.5rem",
+                                paddingBottom: "1.5rem",
                                 paddingLeft: "1rem",
                                 paddingRight: "1rem",
                                 maxWidth: "512px",
@@ -71,7 +78,7 @@ export const EmailLayout = ({
                                             width="100%"
                                             style={{
                                                 backgroundColor: "#ffffff",
-                                                padding: "2.5rem 1rem",
+                                                padding: "0rem 1rem",
                                                 borderRadius: "0.5rem",
                                                 boxShadow:
                                                     "0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)"
@@ -82,9 +89,9 @@ export const EmailLayout = ({
                                                     <td align="center">
                                                         {/* Logo */}
                                                         <img
-                                                            src={emailLogo}
+                                                            src={`${baseUrl}feeds-fun/header-logo.png`}
                                                             alt={exp("realmName")}
-                                                            style={{ height: "40px" }}
+                                                            // style={{ height: "60px" }}
                                                         />
                                                     </td>
                                                 </tr>
