@@ -18,6 +18,10 @@ docker compose up build-theme
 
 - Use `keycloak-theme-for-kc-all-other-versions.jar` for Keycloak 26.
 
+# Email templates we are interested in
+
+- `magic-link-email.tsx`
+
 ---
 
 <p align="center">
