@@ -2,7 +2,7 @@
 // - fixed magic link url
 // - massive styling changes to fit Feeds Fun branding
 // - part of variables replaced with constants for preview purposes
-import { render, Text, Heading } from "jsx-email";
+import { render, Text } from "jsx-email";
 import { EmailLayout } from "../layout";
 import { GetSubject, GetTemplate, GetTemplateProps } from "keycloakify-emails";
 import { variablesHelper } from "../util/VariablesHelper";
@@ -38,16 +38,19 @@ export const Template = ({ locale, t }: TemplateProps) => (
         locale={locale}
         disclaimer={t("magic-link-email.disclaimer")}
     >
-      <Heading
-        as="h1"
+      {/*Can not use Heading here, because it render ALL APPERCASE in text mode
+         Which breaks the Keycloak variables (they are case sensitive)*/}
+      <Text
         style={{
-          paddingTop: "0",
-          marginTop: "0",
+          fontSize: "2rem",
+          fontWeight: 700,
+          marginTop: 0,
           textAlign: "center",
         }}
       >
          Login to {c.realmName}
-      </Heading>
+      </Text>
+
         <Text style={paragraph}>
             <p>{t("magic-link-email.messageBody", { realmName: c.realmName })}</p>
             <p>
