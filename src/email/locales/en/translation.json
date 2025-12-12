@@ -97,8 +97,9 @@
     "messageSubject": "Login to your account",
     "messagePreview": "Click the magic link to log in to {realmName}",
     "preButtonMessage": "Click the button below to log in. The link expires in 15 minutes.",
-    "preLinkMessage": "Alternatively, you can directly paste this link in your browser.",
+    "preLinkMessage": "Alternatively, you can directly copy and paste this link into your browser.",
     "magicLinkButton": "Login",
+    "magicLinkFallbackLink": "Login link",
     "disclaimer": "If you did not initiate this login link request, you can safely ignore this email."
   },
   "organization-invite": {

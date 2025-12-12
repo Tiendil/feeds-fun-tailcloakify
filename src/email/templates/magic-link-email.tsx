@@ -57,7 +57,7 @@ export const Template = ({ locale, t }: TemplateProps) => (
       <Text style={paragraph}>
             <p style={paragraph}>{t("magic-link-email.preButtonMessage")}</p>
             <p style={paragraph}>
-              <a href={exp("magicLink")}
+              <a href={c.magicLink}
                 style={{
                   background: '#059669', // tailwind bg-emerald-600 like for the "register" button
                   fontSize: '1.125rem',
@@ -77,8 +77,8 @@ export const Template = ({ locale, t }: TemplateProps) => (
               </a>
             </p>
             <p style={paragraph}>{t("magic-link-email.preLinkMessage")}</p>
-            <p style={paragraph}>
-              <a href={exp("magicLink")}>{exp("magicLink")}</a>
+            <p style={{...paragraph, }}>
+              <a href={c.magicLink}>{t("magic-link-email.magicLinkFallbackLink")}</a>
             </p>
         </Text>
     </EmailLayout>
