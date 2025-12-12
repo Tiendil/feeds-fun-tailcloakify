@@ -1,14 +1,21 @@
+// THIS FILE CHANGED FOR FEEDS.FUN NEEDS:
+// - logo image changed
+// - massive styling changes to fit Feeds Fun branding
+// - part of variables replaced with constants for preview purposes
 import { Body, Container, Head, Html, Preview, Tailwind } from "jsx-email";
 import { PropsWithChildren, ReactNode } from "react";
 import { createVariablesHelper } from "keycloakify-emails/variables";
 import i18n from "./i18n";
+// Feeds Fun preview constants
+import * as c from "./previewConstants";
 
 const { exp } = createVariablesHelper("email-test.ftl");
 const currentYear = new Date().getFullYear();
 const backgroundImage = exp("properties.TAILCLOAKIFY_EMAIL_BACKGROUND_IMAGE_URL");
-const emailLogo = exp("properties.TAILCLOAKIFY_EMAIL_LOGO");
-const templateFont = exp("properties.TAILCLOAKIFY_EMAIL_FONT_FAMILY");
-const contactEmail = exp("properties.TAILCLOAKIFY_EMAIL_CONTACT");
+// const emailLogo = exp("properties.TAILCLOAKIFY_EMAIL_LOGO");
+const templateFont = 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", Ubuntu, sans-serif';
+
+// const contactEmail = exp("properties.TAILCLOAKIFY_EMAIL_CONTACT");
 
 export const EmailLayout = ({
     locale,
@@ -21,14 +28,14 @@ export const EmailLayout = ({
     return (
         <Html lang={locale}>
             <Head>
-                <title> {t("header.title", { realmName: exp("realmName") })} </title>
+                <title> {t("header.title", { realmName: c.realmName })} </title>
             </Head>
             <Preview>{preview}</Preview>
             <Body
                 style={{
                     margin: 0,
                     padding: 0,
-                    backgroundColor: "#ecf9ff",
+                    backgroundColor: "#fff",
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
                     ...(backgroundImage
@@ -39,8 +46,6 @@ export const EmailLayout = ({
                           }
                         : {}),
                     fontFamily: templateFont
-                        ? `'${templateFont}'`
-                        : '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif'
                 }}
             >
                 <Tailwind>
@@ -51,11 +56,13 @@ export const EmailLayout = ({
                             border={0}
                             align="center"
                             style={{
-                                paddingTop: "2.5rem",
-                                paddingBottom: "2.5rem",
+                                paddingTop: "1.5rem",
+                                paddingBottom: "1.5rem",
                                 paddingLeft: "1rem",
                                 paddingRight: "1rem",
-                                maxWidth: "512px",
+                                // current best practice for email layout width
+                                // accoring to the ChatGPT
+                                maxWidth: "600px",
                                 marginLeft: "auto",
                                 marginRight: "auto"
                             }}
@@ -71,10 +78,10 @@ export const EmailLayout = ({
                                             width="100%"
                                             style={{
                                                 backgroundColor: "#ffffff",
-                                                padding: "2.5rem 1rem",
-                                                borderRadius: "0.5rem",
-                                                boxShadow:
-                                                    "0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)"
+                                                padding: "0 1rem",
+                                                // borderRadius: "0.5rem",
+                                                // boxShadow:
+                                                //     "0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)"
                                             }}
                                         >
                                             <tbody>
@@ -82,9 +89,9 @@ export const EmailLayout = ({
                                                     <td align="center">
                                                         {/* Logo */}
                                                         <img
-                                                            src={emailLogo}
-                                                            alt={exp("realmName")}
-                                                            style={{ height: "40px" }}
+                                                            src={`${c.baseUrl}feeds-fun/header-logo.png`}
+                                                            alt={c.realmName}
+                                                            // style={{ height: "60px" }}
                                                         />
                                                     </td>
                                                 </tr>
@@ -92,15 +99,15 @@ export const EmailLayout = ({
                                                     <td
                                                         align="left"
                                                         style={{
-                                                            marginTop: "2.5rem",
-                                                            paddingTop: "1.5rem"
+                                                            marginTop: "0",
+                                                            paddingTop: "0"
                                                         }}
                                                     >
                                                         {children}
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>{disclaimer}</td>
+                                                  <td>{disclaimer}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -119,8 +126,8 @@ export const EmailLayout = ({
                                 width: "100%",
                                 margin: "0.5rem",
                                 fontSize: "0.875rem",
-                                opacity: 0.8,
-                                color: "black"
+                                // opacity: 0.8,
+                                color: "#64748b"  // tailwind text-slate-500
                             }}
                         >
                             <tbody>
@@ -128,21 +135,21 @@ export const EmailLayout = ({
                                     <td
                                         style={{
                                             textAlign: "left",
-                                            fontSize: "0.5rem"
+                                            fontSize: "0.75rem"
                                         }}
                                     >
                                         {t("footer.disclaimer", {
-                                            realmName: exp("realmName"),
-                                            contactEmail: contactEmail
+                                            realmName: c.realmName,
+                                            contactEmail: c.contactEmail
                                         })}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style={{ color: "black", textAlign: "center" }}>
+                                    <td style={{ textAlign: "center" }}>
                                         <br />
-                                        {t("footer.year", {
+                                        {t("footer.copyright", {
                                             currentYear,
-                                            realmName: exp("realmName")
+                                            realmName: c.realmName
                                         })}
                                     </td>
                                 </tr>

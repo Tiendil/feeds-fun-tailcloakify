@@ -1,19 +1,22 @@
 // THIS FILE CHANGED FOR FEEDS.FUN NEEDS:
 // - fixed magic link url
+// - massive styling changes to fit Feeds Fun branding
+// - part of variables replaced with constants for preview purposes
 import { render, Text } from "jsx-email";
 import { EmailLayout } from "../layout";
 import { GetSubject, GetTemplate, GetTemplateProps } from "keycloakify-emails";
-import { variablesHelper } from "../util/VariablesHelper";
+// import { variablesHelper } from "../util/VariablesHelper";
 import i18n, { TFunction } from "i18next";
 import { previewLocale } from "../util/previewLocale";
+// Feeds Fun preview constants
+import * as c from "../previewConstants";
 
 type TemplateProps = Omit<GetTemplateProps, "plainText"> & { t: TFunction };
 
 const paragraph = {
-    color: "#777",
-    fontSize: "16px",
-    lineHeight: "24px",
-    textAlign: "left" as const
+    fontSize: "1.125rem",
+    lineHeight: "1.5rem",
+    textAlign: "center" as const
 };
 
 export const previewProps: TemplateProps = {
@@ -24,21 +27,58 @@ export const previewProps: TemplateProps = {
 
 export const templateName = "Magic Link";
 
-const { exp } = variablesHelper("magic-link-email.ftl");
+// const { exp } = variablesHelper("magic-link-email.ftl");
 
 export const Template = ({ locale, t }: TemplateProps) => (
     <EmailLayout
         preview={t("magic-link-email.messagePreview", {
-            realmName: exp("realmName")
+            realmName: c.realmName
         })}
         locale={locale}
-        disclaimer={t("magic-link-email.disclaimer")}
+        disclaimer={
+          <p style={{...paragraph, marginTop: "0"}}>
+            {t("magic-link-email.disclaimer")}
+          </p>
+        }
     >
-        <Text style={paragraph}>
-            <p>{t("magic-link-email.messageBody", { realmName: exp("realmName") })}</p>
-            <p>
-              <a href={exp("magicLink")}>{t("magic-link-email.magicLink")}</a>
+      {/*Can not use Heading here, because it render ALL APPERCASE in text mode
+         Which breaks the Keycloak variables (they are case sensitive)*/}
+      <Text
+        style={{
+          fontSize: "1.75rem",
+          fontWeight: 700,
+          marginTop: 0,
+          textAlign: "center" as const,
+        }}
+      >
+         Login to {c.realmName}
+      </Text>
+
+      <Text style={paragraph}>
+            <p style={paragraph}>{t("magic-link-email.preButtonMessage")}</p>
+            <p style={paragraph}>
+              <a href={c.magicLink}
+                style={{
+                  ...paragraph,
+                  background: '#059669', // tailwind bg-emerald-600 like for the "register" button
+                  fontWeight: '700',
+                  textDecoration: 'none',
+                  padding: '1rem 2rem',
+                  color: '#ffffff',
+                  display: 'block',
+                  borderRadius: '10px',
+                  width: 'fit-content',
+                  margin: '1.5rem auto'
+                }}
+              >
+                {t("magic-link-email.magicLinkButton")}
+              </a>
             </p>
+        <p style={paragraph}>
+          {t("magic-link-email.preLinkMessage")}
+          &nbsp;
+          <a href={c.magicLink}>{t("magic-link-email.magicLinkFallbackLink")}</a>
+        </p>
         </Text>
     </EmailLayout>
 );

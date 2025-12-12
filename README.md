@@ -14,6 +14,10 @@ docker compose up email
 docker compose up build-theme
 ```
 
+# Notes
+
+- Use `keycloak-theme-for-kc-all-other-versions.jar` for Keycloak 26.
+
 ---
 
 <p align="center">

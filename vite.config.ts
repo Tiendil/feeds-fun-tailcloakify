@@ -78,6 +78,10 @@ export default defineConfig({
                     cwd: __dirname,
                     environmentVariables: buildContext.environmentVariables,
                     esbuild: {},
+                    /////////////////////
+                    // Feeds Fun changes
+                    assetsDirPath: import.meta.dirname + "/src/email/templates/assets",
+                    ////////////////////
                 });
             },
         })
