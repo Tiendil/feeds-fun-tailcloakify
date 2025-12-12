@@ -1,11 +1,15 @@
 // THIS FILE CHANGED FOR FEEDS.FUN NEEDS:
 // - fixed magic link url
-import { render, Text } from "jsx-email";
+// - massive styling changes to fit Feeds Fun branding
+// - part of variables replaced with constants for preview purposes
+import { render, Text, Heading } from "jsx-email";
 import { EmailLayout } from "../layout";
 import { GetSubject, GetTemplate, GetTemplateProps } from "keycloakify-emails";
 import { variablesHelper } from "../util/VariablesHelper";
 import i18n, { TFunction } from "i18next";
 import { previewLocale } from "../util/previewLocale";
+// Feeds Fun preview constants
+import * as c from "../previewConstants";
 
 type TemplateProps = Omit<GetTemplateProps, "plainText"> & { t: TFunction };
 
@@ -29,13 +33,23 @@ const { exp } = variablesHelper("magic-link-email.ftl");
 export const Template = ({ locale, t }: TemplateProps) => (
     <EmailLayout
         preview={t("magic-link-email.messagePreview", {
-            realmName: exp("realmName")
+            realmName: c.realmName
         })}
         locale={locale}
         disclaimer={t("magic-link-email.disclaimer")}
     >
+      <Heading
+        as="h1"
+        style={{
+          paddingTop: "0",
+          marginTop: "0",
+          "text-align": "center",
+        }}
+      >
+         Login to {c.realmName}
+      </Heading>
         <Text style={paragraph}>
-            <p>{t("magic-link-email.messageBody", { realmName: exp("realmName") })}</p>
+            <p>{t("magic-link-email.messageBody", { realmName: c.realmName })}</p>
             <p>
               {/* Feeds Fun changes */}
               {/* @ts-expect-error */}

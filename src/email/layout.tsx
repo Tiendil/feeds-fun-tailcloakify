@@ -1,9 +1,13 @@
 // THIS FILE CHANGED FOR FEEDS.FUN NEEDS:
 // - logo image changed
+// - massive styling changes to fit Feeds Fun branding
+// - part of variables replaced with constants for preview purposes
 import { Body, Container, Head, Html, Preview, Tailwind } from "jsx-email";
 import { PropsWithChildren, ReactNode } from "react";
 import { createVariablesHelper } from "keycloakify-emails/variables";
 import i18n from "./i18n";
+// Feeds Fun preview constants
+import * as c from "./previewConstants";
 
 const { exp } = createVariablesHelper("email-test.ftl");
 const currentYear = new Date().getFullYear();
@@ -11,11 +15,6 @@ const backgroundImage = exp("properties.TAILCLOAKIFY_EMAIL_BACKGROUND_IMAGE_URL"
 // const emailLogo = exp("properties.TAILCLOAKIFY_EMAIL_LOGO");
 const templateFont = exp("properties.TAILCLOAKIFY_EMAIL_FONT_FAMILY");
 const contactEmail = exp("properties.TAILCLOAKIFY_EMAIL_CONTACT");
-
-////////////////////
-// Feeds Fun changes
-const baseUrl = import.meta.isJsxEmailPreview ? '/assets/' : 'https://assets.example.com/';  // TODO
-////////////////////
 
 export const EmailLayout = ({
     locale,
@@ -28,14 +27,14 @@ export const EmailLayout = ({
     return (
         <Html lang={locale}>
             <Head>
-                <title> {t("header.title", { realmName: exp("realmName") })} </title>
+                <title> {t("header.title", { realmName: c.realmName })} </title>
             </Head>
             <Preview>{preview}</Preview>
             <Body
                 style={{
                     margin: 0,
                     padding: 0,
-                    backgroundColor: "#ecf9ff",
+                    backgroundColor: "#fff",
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
                     ...(backgroundImage
@@ -78,7 +77,7 @@ export const EmailLayout = ({
                                             width="100%"
                                             style={{
                                                 backgroundColor: "#ffffff",
-                                                padding: "0rem 1rem",
+                                                padding: "0 1rem",
                                                 borderRadius: "0.5rem",
                                                 boxShadow:
                                                     "0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)"
@@ -89,8 +88,8 @@ export const EmailLayout = ({
                                                     <td align="center">
                                                         {/* Logo */}
                                                         <img
-                                                            src={`${baseUrl}feeds-fun/header-logo.png`}
-                                                            alt={exp("realmName")}
+                                                            src={`${c.baseUrl}feeds-fun/header-logo.png`}
+                                                            alt={c.realmName}
                                                             // style={{ height: "60px" }}
                                                         />
                                                     </td>
@@ -99,8 +98,8 @@ export const EmailLayout = ({
                                                     <td
                                                         align="left"
                                                         style={{
-                                                            marginTop: "2.5rem",
-                                                            paddingTop: "1.5rem"
+                                                            marginTop: "0",
+                                                            paddingTop: "0"
                                                         }}
                                                     >
                                                         {children}
@@ -139,7 +138,7 @@ export const EmailLayout = ({
                                         }}
                                     >
                                         {t("footer.disclaimer", {
-                                            realmName: exp("realmName"),
+                                            realmName: c.realmName,
                                             contactEmail: contactEmail
                                         })}
                                     </td>
@@ -149,7 +148,7 @@ export const EmailLayout = ({
                                         <br />
                                         {t("footer.year", {
                                             currentYear,
-                                            realmName: exp("realmName")
+                                            realmName: c.realmName
                                         })}
                                     </td>
                                 </tr>
