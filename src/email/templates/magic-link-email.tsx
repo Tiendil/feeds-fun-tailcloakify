@@ -43,7 +43,7 @@ export const Template = ({ locale, t }: TemplateProps) => (
         style={{
           paddingTop: "0",
           marginTop: "0",
-          "text-align": "center",
+          textAlign: "center",
         }}
       >
          Login to {c.realmName}
