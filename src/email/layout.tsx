@@ -61,7 +61,9 @@ export const EmailLayout = ({
                                 paddingBottom: "1.5rem",
                                 paddingLeft: "1rem",
                                 paddingRight: "1rem",
-                                maxWidth: "512px",
+                                // current best practice for email layout width
+                                // accoring to the ChatGPT
+                                maxWidth: "600px",
                                 marginLeft: "auto",
                                 marginRight: "auto"
                             }}
@@ -78,9 +80,9 @@ export const EmailLayout = ({
                                             style={{
                                                 backgroundColor: "#ffffff",
                                                 padding: "0 1rem",
-                                                borderRadius: "0.5rem",
-                                                boxShadow:
-                                                    "0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)"
+                                                // borderRadius: "0.5rem",
+                                                // boxShadow:
+                                                //     "0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)"
                                             }}
                                         >
                                             <tbody>
@@ -106,7 +108,7 @@ export const EmailLayout = ({
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>{disclaimer}</td>
+                                                  <td>{disclaimer}</td>
                                                 </tr>
                                             </tbody>
                                         </table>

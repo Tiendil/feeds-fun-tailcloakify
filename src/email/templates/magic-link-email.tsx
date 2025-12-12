@@ -14,10 +14,9 @@ import * as c from "../previewConstants";
 type TemplateProps = Omit<GetTemplateProps, "plainText"> & { t: TFunction };
 
 const paragraph = {
-    color: "#777",
-    fontSize: "16px",
+    fontSize: "1.125rem",
     lineHeight: "24px",
-    textAlign: "left" as const
+    textAlign: "center"
 };
 
 export const previewProps: TemplateProps = {
@@ -36,7 +35,9 @@ export const Template = ({ locale, t }: TemplateProps) => (
             realmName: c.realmName
         })}
         locale={locale}
-        disclaimer={t("magic-link-email.disclaimer")}
+        disclaimer={
+         <p style={paragraph}>{t("magic-link-email.disclaimer")}</p>
+        }
     >
       {/*Can not use Heading here, because it render ALL APPERCASE in text mode
          Which breaks the Keycloak variables (they are case sensitive)*/}
@@ -51,15 +52,15 @@ export const Template = ({ locale, t }: TemplateProps) => (
          Login to {c.realmName}
       </Text>
 
-        <Text style={paragraph}>
-            <p>{t("magic-link-email.preButtonMessage")}</p>
-            <p>
+      <Text style={paragraph}>
+            <p style={paragraph}>{t("magic-link-email.preButtonMessage")}</p>
+            <p style={paragraph}>
               {/* Feeds Fun changes */}
               <a
                 href={exp("magicLink")}
                 style={{
                   background: '#059669', // tailwind bg-emerald-600 like for the "register" button
-                  fontSize: '17px',
+                  fontSize: '1.125rem',
                   lineHeight: '24px',
                   fontWeight: '700',
                   fontFamily: '\'Helvetica\',sans-serif', // TODO
@@ -75,8 +76,8 @@ export const Template = ({ locale, t }: TemplateProps) => (
                 {t("magic-link-email.magicLinkButton")}
               </a>
             </p>
-            <p>{t("magic-link-email.preLinkMessage")}</p>
-            <p>
+            <p style={paragraph}>{t("magic-link-email.preLinkMessage")}</p>
+            <p style={paragraph}>
               {/* Feeds Fun changes */}
               <a href={exp("magicLink")}>{exp("magicLink")}</a>
             </p>

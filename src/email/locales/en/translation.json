@@ -96,7 +96,7 @@
   "magic-link-email": {
     "messageSubject": "Login to your account",
     "messagePreview": "Click the magic link to log in to {realmName}",
-    "preButtonMessage": "Please click the button below to log in. Note that the link expires in 15 minutes.",
+    "preButtonMessage": "Click the button below to log in. The link expires in 15 minutes.",
     "preLinkMessage": "Alternatively, you can directly paste this link in your browser.",
     "magicLinkButton": "Login",
     "disclaimer": "If you did not initiate this login link request, you can safely ignore this email."
