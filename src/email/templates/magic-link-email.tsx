@@ -52,11 +52,33 @@ export const Template = ({ locale, t }: TemplateProps) => (
       </Text>
 
         <Text style={paragraph}>
-            <p>{t("magic-link-email.messageBody", { realmName: c.realmName })}</p>
+            <p>{t("magic-link-email.preButtonMessage")}</p>
             <p>
               {/* Feeds Fun changes */}
-              {/* @ts-expect-error */}
-              <a href={exp("magicLink")}>{t("magic-link-email.magicLink")}</a>
+              <a
+                href={exp("magicLink")}
+                style={{
+                  background: '#059669', // tailwind bg-emerald-600 like for the "register" button
+                  fontSize: '17px',
+                  lineHeight: '24px',
+                  fontWeight: '700',
+                  fontFamily: '\'Helvetica\',sans-serif', // TODO
+                  textDecoration: 'none',
+                  padding: '9px 25px 9px 25px',
+                  color: '#ffffff',
+                  display: 'block',
+                  borderRadius: '6px',
+                  width: 'fit-content',
+                  margin: '0 auto'
+                }}
+              >
+                {t("magic-link-email.magicLinkButton")}
+              </a>
+            </p>
+            <p>{t("magic-link-email.preLinkMessage")}</p>
+            <p>
+              {/* Feeds Fun changes */}
+              <a href={exp("magicLink")}>{exp("magicLink")}</a>
             </p>
         </Text>
     </EmailLayout>

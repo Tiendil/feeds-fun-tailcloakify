@@ -94,10 +94,11 @@
     "disclaimer": "If you don't want to link account, you can safely ignore this message. If you link accounts, you will be able to login to {realmName} through {identityProviderDisplayName}."
   },
   "magic-link-email": {
-    "messageSubject": "Login to {realmName} account",
-    "messagePreview": "Someone has requested a login link to {realmName}",
-    "messageBody": "Someone has requested a login link to {realmName}",
-    "magicLink": "Click to log in ",
+    "messageSubject": "Login to your account",
+    "messagePreview": "Click the magic link to log in to {realmName}",
+    "preButtonMessage": "Please click the button below to log in. Note that the link expires in 15 minutes.",
+    "preLinkMessage": "Alternatively, you can directly paste this link in your browser.",
+    "magicLinkButton": "Login",
     "disclaimer": "If you did not initiate this login link request, you can safely ignore this email."
   },
   "organization-invite": {

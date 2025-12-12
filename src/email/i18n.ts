@@ -1,37 +1,39 @@
+// THIS FILE CHANGED FOR FEEDS.FUN NEEDS:
+// - Turned off unused languages
 import { GetMessages } from "keycloakify-emails";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import enTranslation from "./locales/en/translation.json";
-import esTranslation from "./locales/es/translation.json";
-import deTranslation from "./locales/de/translation.json";
-import ruTranslation from "./locales/ru/translation.json";
-import czTranslation from "./locales/cs/translation.json";
-import frTranslation from "./locales/fr/translation.json";
-import itTranslation from "./locales/it/translation.json";
+// import esTranslation from "./locales/es/translation.json";
+// import deTranslation from "./locales/de/translation.json";
+// import ruTranslation from "./locales/ru/translation.json";
+// import czTranslation from "./locales/cs/translation.json";
+// import frTranslation from "./locales/fr/translation.json";
+// import itTranslation from "./locales/it/translation.json";
 import ICU from "i18next-icu";
 
 const resources = {
     en: {
         translation: enTranslation
     },
-    es: {
-        translation: esTranslation
-    },
-    de: {
-        translation: deTranslation
-    },
-    ru: {
-        translation: ruTranslation
-    },
-    cs : {
-        translation: czTranslation
-    },
-    fr: {
-        translation: frTranslation
-    },
-    it: {
-        translation: itTranslation
-    }
+    // es: {
+    //     translation: esTranslation
+    // },
+    // de: {
+    //     translation: deTranslation
+    // },
+    // ru: {
+    //     translation: ruTranslation
+    // },
+    // cs : {
+    //     translation: czTranslation
+    // },
+    // fr: {
+    //     translation: frTranslation
+    // },
+    // it: {
+    //     translation: itTranslation
+    // }
 };
 
 if (!i18n.isInitialized) {
