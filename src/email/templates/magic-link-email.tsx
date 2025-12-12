@@ -15,7 +15,7 @@ type TemplateProps = Omit<GetTemplateProps, "plainText"> & { t: TFunction };
 
 const paragraph = {
     fontSize: "1.125rem",
-    lineHeight: "24px",
+    lineHeight: "1.5rem",
     textAlign: "center" as const
 };
 
@@ -59,9 +59,8 @@ export const Template = ({ locale, t }: TemplateProps) => (
             <p style={paragraph}>
               <a href={c.magicLink}
                 style={{
+                  ...paragraph,
                   background: '#059669', // tailwind bg-emerald-600 like for the "register" button
-                  fontSize: '1.125rem',
-                  lineHeight: '24px',
                   fontWeight: '700',
                   fontFamily: '\'Helvetica\',sans-serif', // TODO
                   textDecoration: 'none',
