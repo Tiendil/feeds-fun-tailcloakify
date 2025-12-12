@@ -13,7 +13,8 @@ const { exp } = createVariablesHelper("email-test.ftl");
 const currentYear = new Date().getFullYear();
 const backgroundImage = exp("properties.TAILCLOAKIFY_EMAIL_BACKGROUND_IMAGE_URL");
 // const emailLogo = exp("properties.TAILCLOAKIFY_EMAIL_LOGO");
-const templateFont = exp("properties.TAILCLOAKIFY_EMAIL_FONT_FAMILY");
+const templateFont = 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", Ubuntu, sans-serif';
+
 // const contactEmail = exp("properties.TAILCLOAKIFY_EMAIL_CONTACT");
 
 export const EmailLayout = ({
@@ -45,8 +46,6 @@ export const EmailLayout = ({
                           }
                         : {}),
                     fontFamily: templateFont
-                        ? `'${templateFont}'`
-                        : '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif'
                 }}
             >
                 <Tailwind>

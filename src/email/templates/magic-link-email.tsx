@@ -62,7 +62,6 @@ export const Template = ({ locale, t }: TemplateProps) => (
                   ...paragraph,
                   background: '#059669', // tailwind bg-emerald-600 like for the "register" button
                   fontWeight: '700',
-                  fontFamily: '\'Helvetica\',sans-serif', // TODO
                   textDecoration: 'none',
                   padding: '1rem 2rem',
                   color: '#ffffff',
