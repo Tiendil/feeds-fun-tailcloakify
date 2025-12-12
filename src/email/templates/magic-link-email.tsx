@@ -36,7 +36,9 @@ export const Template = ({ locale, t }: TemplateProps) => (
         })}
         locale={locale}
         disclaimer={
-         <p style={paragraph}>{t("magic-link-email.disclaimer")}</p>
+          <p style={{...paragraph, marginTop: "0"}}>
+            {t("magic-link-email.disclaimer")}
+          </p>
         }
     >
       {/*Can not use Heading here, because it render ALL APPERCASE in text mode
