@@ -45,7 +45,7 @@ export const Template = ({ locale, t }: TemplateProps) => (
          Which breaks the Keycloak variables (they are case sensitive)*/}
       <Text
         style={{
-          fontSize: "2rem",
+          fontSize: "1.75rem",
           fontWeight: 700,
           marginTop: 0,
           textAlign: "center" as const,
@@ -65,21 +65,22 @@ export const Template = ({ locale, t }: TemplateProps) => (
                   fontWeight: '700',
                   fontFamily: '\'Helvetica\',sans-serif', // TODO
                   textDecoration: 'none',
-                  padding: '9px 25px 9px 25px',
+                  padding: '1rem 2rem',
                   color: '#ffffff',
                   display: 'block',
-                  borderRadius: '6px',
+                  borderRadius: '10px',
                   width: 'fit-content',
-                  margin: '0 auto'
+                  margin: '1.5rem auto'
                 }}
               >
                 {t("magic-link-email.magicLinkButton")}
               </a>
             </p>
-            <p style={paragraph}>{t("magic-link-email.preLinkMessage")}</p>
-            <p style={{...paragraph, }}>
-              <a href={c.magicLink}>{t("magic-link-email.magicLinkFallbackLink")}</a>
-            </p>
+        <p style={paragraph}>
+          {t("magic-link-email.preLinkMessage")}
+          &nbsp;
+          <a href={c.magicLink}>{t("magic-link-email.magicLinkFallbackLink")}</a>
+        </p>
         </Text>
     </EmailLayout>
 );
