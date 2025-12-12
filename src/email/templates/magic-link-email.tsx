@@ -16,7 +16,7 @@ type TemplateProps = Omit<GetTemplateProps, "plainText"> & { t: TFunction };
 const paragraph = {
     fontSize: "1.125rem",
     lineHeight: "24px",
-    textAlign: "center"
+    textAlign: "center" as const
 };
 
 export const previewProps: TemplateProps = {
@@ -48,7 +48,7 @@ export const Template = ({ locale, t }: TemplateProps) => (
           fontSize: "2rem",
           fontWeight: 700,
           marginTop: 0,
-          textAlign: "center",
+          textAlign: "center" as const,
         }}
       >
          Login to {c.realmName}
@@ -57,9 +57,8 @@ export const Template = ({ locale, t }: TemplateProps) => (
       <Text style={paragraph}>
             <p style={paragraph}>{t("magic-link-email.preButtonMessage")}</p>
             <p style={paragraph}>
-              {/* Feeds Fun changes */}
-              <a
-                href={exp("magicLink")}
+              {/* @ts-expect-error */}
+              <a href={exp("magicLink")}
                 style={{
                   background: '#059669', // tailwind bg-emerald-600 like for the "register" button
                   fontSize: '1.125rem',
@@ -80,7 +79,7 @@ export const Template = ({ locale, t }: TemplateProps) => (
             </p>
             <p style={paragraph}>{t("magic-link-email.preLinkMessage")}</p>
             <p style={paragraph}>
-              {/* Feeds Fun changes */}
+              {/* @ts-expect-error */}
               <a href={exp("magicLink")}>{exp("magicLink")}</a>
             </p>
         </Text>
