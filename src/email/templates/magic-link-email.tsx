@@ -37,8 +37,6 @@ export const Template = ({ locale, t }: TemplateProps) => (
         <Text style={paragraph}>
             <p>{t("magic-link-email.messageBody", { realmName: exp("realmName") })}</p>
             <p>
-              {/* Feeds Fun changes */}
-              {/* @ts-expect-error */}
               <a href={exp("magicLink")}>{t("magic-link-email.magicLink")}</a>
             </p>
         </Text>
