@@ -127,8 +127,8 @@ export const EmailLayout = ({
                                 width: "100%",
                                 margin: "0.5rem",
                                 fontSize: "0.875rem",
-                                opacity: 0.8,
-                                color: "black"
+                                // opacity: 0.8,
+                                color: "#64748b"  // tailwind text-slate-500
                             }}
                         >
                             <tbody>
@@ -136,7 +136,7 @@ export const EmailLayout = ({
                                     <td
                                         style={{
                                             textAlign: "left",
-                                            fontSize: "0.5rem"
+                                            fontSize: "0.75rem"
                                         }}
                                     >
                                         {t("footer.disclaimer", {
@@ -146,9 +146,9 @@ export const EmailLayout = ({
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style={{ color: "black", textAlign: "center" }}>
+                                    <td style={{ textAlign: "center" }}>
                                         <br />
-                                        {t("footer.year", {
+                                        {t("footer.copyright", {
                                             currentYear,
                                             realmName: c.realmName
                                         })}
