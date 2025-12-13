@@ -22,6 +22,10 @@ docker compose up build-theme
 
 - `magic-link-email.tsx`
 
+# Pages / Stories
+
+- `login-username.ftl` — `Feeds Fun`
+
 ---
 
 <p align="center">
