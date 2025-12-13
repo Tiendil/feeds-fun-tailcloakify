@@ -1,3 +1,5 @@
+// THIS FILE CHANGED FOR FEEDS.FUN NEEDS:
+// - Added Feeds Fun specific stories
 import type { Meta, StoryObj } from "@storybook/react";
 import { createKcPageStory } from "../KcPageStory";
 
@@ -294,3 +296,64 @@ export const WithAuthPasskey: Story = {
             />
     )
 }
+
+// Feeds Fun changes
+
+export const FeedsFun: Story = {
+    render: args => (
+        <KcPageStory
+            {...args}
+            kcContext={{
+                social: {
+                    displayInfo: true,
+                    providers: [
+                        {
+                            loginUrl: "google",
+                            alias: "google",
+                            providerId: "google",
+                            displayName: "Google",
+                            iconClasses: "fa fa-google"
+                        },
+                        {
+                            loginUrl: "apple",
+                            alias: "apple",
+                            providerId: "Apple",
+                            displayName: "Apple",
+                            iconClasses: "fa fa-apple"
+                        },
+                        {
+                            loginUrl: "microsoft",
+                            alias: "microsoft",
+                            providerId: "microsoft",
+                            displayName: "Microsoft",
+                            iconClasses: "fa fa-windows"
+                        },
+                        {
+                            loginUrl: "linkedin",
+                            alias: "linkedin",
+                            providerId: "linkedin",
+                            displayName: "LinkedIn",
+                            iconClasses: "fa fa-linkedin"
+                        },
+                        {
+                            loginUrl: "github",
+                            alias: "github",
+                            providerId: "github",
+                            displayName: "Github",
+                            iconClasses: "fa fa-github"
+                        },
+                        {
+                            loginUrl: "twitter",
+                            alias: "twitter",
+                            providerId: "twitter",
+                            displayName: "Twitter",
+                            iconClasses: "fa fa-twitter"
+                        },
+
+                    ]
+                },
+              realm: { rememberMe: false, registrationAllowed: false }
+            }}
+        />
+    )
+};
