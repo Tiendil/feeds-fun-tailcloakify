@@ -20,8 +20,6 @@ const { useI18n, ofTypeI18n } = i18nBuilder
                 "Check your email, and click on the link to log in! Please do not close this tab.",
             magicLinkSuccessfulLogin:
                 "Authentication session confirmed. Please return to login page tab.",
-            magicLinkFailLogin:
-                "Authentication session expired. Please close this tab and restart the login flow.",
             loginPage: "Login page",
             multipleSessionsError:
                 "Multiple login sessions opened on same browser. Please close it and restart login.",
@@ -34,6 +32,8 @@ const { useI18n, ofTypeI18n } = i18nBuilder
             // Feeds Fun overrides
             doLogIn: "Continue with Feeds Fun",
             doLogInSubtitle: "We'll send you a login link — no password needed.",
+            magicLinkFailLogin: "Login link expired",
+            magicLinkFailRestart: "Request new link",
             viewEmailChangeEmail: "change email",
             viewEmailLoginLinkSentTo: "We sent you a login link to",
             viewEmailDeliverTime: "You should receive the email within a few minutes.",
