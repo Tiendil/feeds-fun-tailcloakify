@@ -16,7 +16,6 @@ const { useI18n, ofTypeI18n } = i18nBuilder
             footerDataProtectionTitle: "Data Protection",
             footerCookiePreferencesTitle: "Cookie Preferences",
             doResend: "Resend",
-            magicLinkConfirmation: "Check your email, and click on the link to log in!",
             magicLinkContinuationConfirmation:
                 "Check your email, and click on the link to log in! Please do not close this tab.",
             magicLinkSuccessfulLogin:
@@ -34,7 +33,12 @@ const { useI18n, ofTypeI18n } = i18nBuilder
             //////////////////////
             // Feeds Fun overrides
             doLogIn: "Continue with Feeds Fun",
-            doLogInSubtitle: "We'll send you a login link — no password needed."
+            doLogInSubtitle: "We'll send you a login link — no password needed.",
+            viewEmailChangeEmail: "[change]",
+            viewEmailLoginLinkSentTo: "We sent you a login link to",
+            viewEmailDeliverTime: "You should receive the email within a few minutes.",
+            viewEmailBrowserNote: "Open the link in the same browser you started with.",
+            viewEmailSpamNote: "If you don't see the email, check your spam folder.",
             //////////////////////
         }
     })

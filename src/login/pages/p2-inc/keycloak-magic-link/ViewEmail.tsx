@@ -1,3 +1,5 @@
+// THIS FILE CHANGED FOR FEEDS.FUN NEEDS:
+// - massive layout and styling changes to fit Feeds Fun branding
 import { getKcClsx } from "keycloakify/login/lib/kcClsx";
 import type { PageProps } from "keycloakify/login/pages/PageProps";
 import type { KcContext } from "../../../KcContext";
@@ -24,19 +26,28 @@ export default function ViewEmail(props: PageProps<Extract<KcContext, { pageId: 
             displayInfo={false}
             displayRequiredFields={false}
             displayMessage={false}
-            headerNode={
-                <div id="kc-username" className={kcClsx("kcFormGroupClass")} style={{ display: "flex", justifyContent: "center" }}>
-                    <label id="kc-attempted-username">{auth.attemptedUsername}</label>
-                    <a id="reset-login" href={url.loginRestartFlowUrl} aria-label={msgStr("restartLoginTooltip")}>
-                        <div className="kc-login-tooltip">
-                            <i className={kcClsx("kcResetFlowIcon")}></i>
-                            <span className="kc-tooltip-text">${msg("restartLoginTooltip")}</span>
-                        </div>
-                    </a>
-                </div>
-            }
+            headerNode={msgStr("viewEmailLoginLinkSentTo")}
         >
-            {msg("magicLinkConfirmation")}
+          <p style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+
+            <span id="kc-attempted-username" style={{ fontWeight: "bold", color: "#111", verticalAlign: "middle" }}>
+              {auth.attemptedUsername}
+            </span>
+
+            <a id="reset-login"
+              href={url.loginRestartFlowUrl}
+              style={{ fontSize: "0.875rem", color: "#1d4ed8", verticalAlign: "middle" }}
+            >
+              {msg("viewEmailChangeEmail")}
+            </a>
+          </p>
+
+          <ul style={{ marginBottom: "1.5rem", color: "#111", fontSize: "0.75rem" }}>
+            <li>{msg("viewEmailDeliverTime")}</li>
+            <li>{msg("viewEmailSpamNote")}</li>
+            <li>{msg("viewEmailBrowserNote")}</li>
+          </ul>
+
         </Template>
     );
 }
