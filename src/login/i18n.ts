@@ -34,7 +34,7 @@ const { useI18n, ofTypeI18n } = i18nBuilder
             // Feeds Fun overrides
             doLogIn: "Continue with Feeds Fun",
             doLogInSubtitle: "We'll send you a login link — no password needed.",
-            viewEmailChangeEmail: "[change]",
+            viewEmailChangeEmail: "change email",
             viewEmailLoginLinkSentTo: "We sent you a login link to",
             viewEmailDeliverTime: "You should receive the email within a few minutes.",
             viewEmailBrowserNote: "Open the link in the same browser you started with.",
