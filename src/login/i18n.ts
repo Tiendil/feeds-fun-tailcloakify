@@ -30,6 +30,7 @@ const { useI18n, ofTypeI18n } = i18nBuilder
 
             //////////////////////
             // Feeds Fun overrides
+            backToApplication: "Back to Feeds Fun",
             doLogIn: "Continue with Feeds Fun",
             doLogInSubtitle: "We'll send you a login link — no password needed.",
             magicLinkFailLogin: "Login link expired",
