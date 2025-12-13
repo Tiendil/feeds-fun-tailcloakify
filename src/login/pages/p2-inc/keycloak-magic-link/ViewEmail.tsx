@@ -1,17 +1,11 @@
 // THIS FILE CHANGED FOR FEEDS.FUN NEEDS:
 // - massive layout and styling changes to fit Feeds Fun branding
-import { getKcClsx } from "keycloakify/login/lib/kcClsx";
 import type { PageProps } from "keycloakify/login/pages/PageProps";
 import type { KcContext } from "../../../KcContext";
 import type { I18n } from "../../../i18n";
 
 export default function ViewEmail(props: PageProps<Extract<KcContext, { pageId: "view-email.ftl" }>, I18n>) {
     const { kcContext, i18n, doUseDefaultCss, Template, classes } = props;
-
-    const { kcClsx } = getKcClsx({
-        doUseDefaultCss,
-        classes
-    });
 
     const { msg, msgStr } = i18n;
 
