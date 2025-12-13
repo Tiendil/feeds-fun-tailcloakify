@@ -22,9 +22,12 @@ docker compose up build-theme
 
 - `magic-link-email.tsx`
 
-# Pages / Stories
+# Pages — Stories
 
-- `login-username.ftl` — `Feeds Fun`
+- `login/pages/login-username.ftl` — `login-username.ftl/Feeds Fun`
+- `login/pages/p2-inc/keycloak-magic-link/ViewEmail.ftl` — `plugins/p2-inc/keycloak-magic-link/view-email.ftl`
+- `login/pages/p2-inc/keycloak-magic-link/EmailConfirmation.ftl` — `plugins/p2-inc/keycloak-magic-link/email-confirmation.ftl`
+- `login/pages/p2-inc/keycloak-magic-link/EmailConfirmationError.ftl` — `plugins/p2-inc/keycloak-magic-link/email-confirmation-error.ftl`
 
 ---
 
