@@ -28,21 +28,22 @@ export default function ViewEmail(props: PageProps<Extract<KcContext, { pageId: 
             displayMessage={false}
             headerNode={msgStr("viewEmailLoginLinkSentTo")}
         >
-          <p style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+          <p className="mb-6 flex items-center justify-center text-center">
 
-            <span id="kc-attempted-username" style={{ fontWeight: "bold", color: "#111", verticalAlign: "middle" }}>
+            <span className="font-semibold text-gray-900 text-xl mr-2 align-middle">
               {auth.attemptedUsername}
             </span>
 
             <a id="reset-login"
               href={url.loginRestartFlowUrl}
-              style={{ fontSize: "0.875rem", color: "#1d4ed8", verticalAlign: "middle" }}
+              className="text-sm text-blue-700 hover:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 align-middle"
+
             >
               {msg("viewEmailChangeEmail")}
             </a>
           </p>
 
-          <ul style={{ marginBottom: "1.5rem", color: "#111", fontSize: "0.75rem" }}>
+          <ul  className="mb-6 space-y-1 text-xs text-gray-900">
             <li>{msg("viewEmailDeliverTime")}</li>
             <li>{msg("viewEmailSpamNote")}</li>
             <li>{msg("viewEmailBrowserNote")}</li>
