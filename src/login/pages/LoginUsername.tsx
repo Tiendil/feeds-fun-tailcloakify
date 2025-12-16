@@ -10,6 +10,11 @@ import type { I18n } from "../i18n";
 import useProviderLogos from "../useProviderLogos";
 import { useScript } from "keycloakify/login/pages/LoginUsername.useScript";
 
+function agreementLink(text: string, url: string) {
+  // TODO: target='_blank'  is removed by kcSanitize, we should fin a workaround
+  return `<a href='${url}' class='whitespace-nowrap text-primary-600 hover:text-primary-600' rel='noopener noreferrer'>${text}</a>`;
+}
+
 export default function LoginUsername(props: PageProps<Extract<KcContext, { pageId: "login-username.ftl" }>, I18n>) {
     const { kcContext, i18n, doUseDefaultCss, Template, classes } = props;
 
@@ -69,7 +74,7 @@ export default function LoginUsername(props: PageProps<Extract<KcContext, { page
                 <>
                     {realm.password && social?.providers !== undefined && social.providers.length !== 0 && (
                         <div id="kc-social-providers" className={kcClsx("kcFormSocialAccountSectionClass")}>
-                            <hr />
+                           {/*<hr />*/}
                             <h2 className={"pt-4 separate text-secondary-600 text-sm"}>{msg("identity-provider-login-label")}</h2>
                             <ul
                                 className={clsx(
@@ -176,6 +181,10 @@ export default function LoginUsername(props: PageProps<Extract<KcContext, { page
                                 </div>
                             )}
 
+
+                            {/* Feeds Fun changes
+                                Commented to hide unnecessary emtpy space between input field and the button*/}
+                            {/*
                             <div className={kcClsx("kcFormGroupClass", "kcFormSettingClass")}>
                                 <div id="kc-form-options">
                                     {realm.rememberMe && !usernameHidden && (
@@ -194,7 +203,8 @@ export default function LoginUsername(props: PageProps<Extract<KcContext, { page
                                         </div>
                                     )}
                                 </div>
-                            </div>
+                                </div>
+                            */}
 
                             <div id="kc-form-buttons" className={kcClsx("kcFormGroupClass")}>
                                 <input
@@ -208,6 +218,18 @@ export default function LoginUsername(props: PageProps<Extract<KcContext, { page
                                     type="submit"
                                     value={msgStr("doLogIn")}
                                 />
+
+                              {/*Feeds Fun overrides*/}
+<span
+  className="mt-2 block text-sm text-secondary-600 text-center"
+  dangerouslySetInnerHTML={{
+    __html: kcSanitize(msgStr("doLogInAgreement")
+      .replace("{terms}", agreementLink(msgStr("doLogInTermsOfService"), msgStr("doLogInTermsOfServiceLink")))
+      .replace("{privacy}", agreementLink(msgStr("doLogInPrivacyPolicy"), msgStr("doLogInPrivacyPolicyLink")))
+    )
+  }}
+/>
+
                             </div>
                         </form>
                     )}
