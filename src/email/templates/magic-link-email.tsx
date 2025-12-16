@@ -70,6 +70,7 @@ export const Template = ({ locale, t }: TemplateProps) => (
                   width: 'fit-content',
                   margin: '1.5rem auto'
                 }}
+                rel="notrack" // disable links rewriting by mailjet.com
               >
                 {t("magic-link-email.magicLinkButton")}
               </a>
@@ -77,7 +78,7 @@ export const Template = ({ locale, t }: TemplateProps) => (
         <p style={paragraph}>
           {t("magic-link-email.preLinkMessage")}
           &nbsp;
-          <a href={c.magicLink}>{t("magic-link-email.magicLinkFallbackLink")}</a>
+          <a href={c.magicLink} rel="notrack">{t("magic-link-email.magicLinkFallbackLink")}</a>
         </p>
         </Text>
     </EmailLayout>
