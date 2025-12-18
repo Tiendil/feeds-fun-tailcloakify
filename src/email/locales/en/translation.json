@@ -86,7 +86,8 @@
     "title": "{realmName} Notification"
   },
   "identity-provider-link": {
-    "messageSubject": "Identity Provider Link",
+    "title": "Linking {identityProviderDisplayName} account",
+    "messageSubject": "Linking {identityProviderDisplayName} account",
     "messagePreview": "Someone wants to link your {realmName} account",
     "messageBody": "Someone wants to link your {realmName} account with {identityProviderDisplayName} account of user {username}. If this was you, click the link below to link accounts.",
     "messageLink": "Link to confirm account linking.",
@@ -94,6 +95,7 @@
     "disclaimer": "If you don't want to link account, you can safely ignore this message. If you link accounts, you will be able to login to {realmName} through {identityProviderDisplayName}."
   },
   "magic-link-email": {
+    "title": "Login to {realmName}",
     "messageSubject": "Login to your account",
     "messagePreview": "Click the magic link to log in to {realmName}",
     "preButtonMessage": "Click the button below to log in. The link expires in 15 minutes.",

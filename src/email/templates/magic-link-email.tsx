@@ -1,5 +1,4 @@
 // THIS FILE CHANGED FOR FEEDS.FUN NEEDS:
-// - fixed magic link url
 // - massive styling changes to fit Feeds Fun branding
 // - part of variables replaced with constants for preview purposes
 import { render, Text } from "jsx-email";
@@ -12,12 +11,6 @@ import { previewLocale } from "../util/previewLocale";
 import * as c from "../previewConstants";
 
 type TemplateProps = Omit<GetTemplateProps, "plainText"> & { t: TFunction };
-
-const paragraph = {
-    fontSize: "1.125rem",
-    lineHeight: "1.5rem",
-    textAlign: "center" as const
-};
 
 export const previewProps: TemplateProps = {
     t: i18n.getFixedT(previewLocale),
@@ -36,30 +29,23 @@ export const Template = ({ locale, t }: TemplateProps) => (
         })}
         locale={locale}
         disclaimer={
-          <p style={{...paragraph, marginTop: "0"}}>
+          <p style={{...c.styleParagraph, marginTop: "0"}}>
             {t("magic-link-email.disclaimer")}
           </p>
         }
     >
       {/*Can not use Heading here, because it render ALL APPERCASE in text mode
          Which breaks the Keycloak variables (they are case sensitive)*/}
-      <Text
-        style={{
-          fontSize: "1.75rem",
-          fontWeight: 700,
-          marginTop: 0,
-          textAlign: "center" as const,
-        }}
-      >
-         Login to {c.realmName}
+      <Text style={c.styleBodyHeader}>
+        {t("magic-link-email.title", {realmName: c.realmName})}
       </Text>
 
-      <Text style={paragraph}>
-            <p style={paragraph}>{t("magic-link-email.preButtonMessage")}</p>
-            <p style={paragraph}>
+      <Text style={c.styleParagraph}>
+            <p style={c.styleParagraph}>{t("magic-link-email.preButtonMessage")}</p>
+            <p style={c.styleParagraph}>
               <a href={c.magicLink}
                 style={{
-                  ...paragraph,
+                  ...c.styleParagraph,
                   background: '#059669', // tailwind bg-emerald-600 like for the "register" button
                   fontWeight: '700',
                   textDecoration: 'none',
@@ -75,7 +61,7 @@ export const Template = ({ locale, t }: TemplateProps) => (
                 {t("magic-link-email.magicLinkButton")}
               </a>
             </p>
-        <p style={paragraph}>
+        <p style={c.styleParagraph}>
           {t("magic-link-email.preLinkMessage")}
           &nbsp;
           <a href={c.magicLink} rel="notrack">{t("magic-link-email.magicLinkFallbackLink")}</a>

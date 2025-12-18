@@ -1,3 +1,6 @@
+// THIS FILE CHANGED FOR FEEDS.FUN NEEDS:
+// - massive styling changes to fit Feeds Fun branding
+// - part of variables replaced with constants for preview purposes
 import { render, Text } from "jsx-email";
 import { GetSubject, GetTemplate, GetTemplateProps } from "keycloakify-emails";
 import { EmailLayout } from "../layout.tsx";
@@ -5,6 +8,7 @@ import { createVariablesHelper } from "keycloakify-emails/variables";
 import { previewLocale } from "../util/previewLocale.ts";
 import { TFunction } from "i18next";
 import i18n from "../i18n.ts";
+import * as c from "../previewConstants";
 
 type TemplateProps = Omit<GetTemplateProps, "plainText"> & { t: TFunction };
 
@@ -18,41 +22,40 @@ export const templateName = "Identity Provider Link";
 
 const { exp } = createVariablesHelper("identity-provider-link.ftl");
 
-const paragraph = {
-    color: "#777",
-    fontSize: "16px",
-    lineHeight: "24px",
-    textAlign: "left" as const
-};
-
 export const Template = ({ locale, t }: TemplateProps) => (
     <EmailLayout
         preview={t("identity-provider-link.messagePreview")}
         locale={locale}
-        disclaimer={t("identity-provider-link.disclaimer", {
-            realmName: exp("realmName"),
-            identityProviderDisplayName: exp("identityProviderDisplayName")
-        })}
+        disclaimer={
+          <p style={{...c.styleParagraph, marginTop: "0"}}>
+            {t("identity-provider-link.disclaimer", {realmName: c.realmName,identityProviderDisplayName: exp("identityProviderDisplayName")})}
+          </p>
+        }
     >
-        <Text style={paragraph}>
-            <p>
-                <p>
-                    {t("identity-provider-link.messageBody", {
-                        realmName: exp("realmName"),
-                        identityProviderDisplayName: exp("identityProviderDisplayName"),
-                        username: exp("identityProviderContext.username")
-                    })}
-                </p>
-                <p>
-                    <a href={exp("link")}>{t("identity-provider-link.messageLink")}</a>
-                </p>
-                <p>
-                    {t("identity-provider-link.linkExpiry", {
-                        linkExpiration: "${linkExpirationFormatter(linkExpiration)}",
-                        interpolation: { escapeValue: false }
-                    })}
-                </p>
-            </p>
+      {/*Can not use Heading here, because it render ALL APPERCASE in text mode
+         Which breaks the Keycloak variables (they are case sensitive)*/}
+      <Text style={c.styleBodyHeader}>
+        {t("identity-provider-link.title", {identityProviderDisplayName: c.IdPName})}
+      </Text>
+        <Text style={c.styleParagraph}>
+          <p style={c.styleParagraph}>
+            {t("identity-provider-link.messageBody", {
+              realmName: c.realmName,
+              identityProviderDisplayName: c.IdPName,
+              username: c.IdPContextUsername
+            })}
+          </p>
+
+          <p style={c.styleParagraph}>
+            <a href={exp("link")} rel="notrack">{t("identity-provider-link.messageLink")}</a>
+          </p>
+
+          <p style={c.styleParagraph}>
+            {t("identity-provider-link.linkExpiry", {
+              linkExpiration: c.IdPExpriation,
+              interpolation: { escapeValue: false }
+            })}
+          </p>
         </Text>
     </EmailLayout>
 );
@@ -63,6 +66,6 @@ export const getTemplate: GetTemplate = async props => {
 };
 
 export const getSubject: GetSubject = async _props => {
-    const t = i18n.getFixedT(_props.locale);
-    return t("identity-provider-link.messageSubject");
+  const t = i18n.getFixedT(_props.locale);
+  return t("identity-provider-link.messageSubject", {identityProviderDisplayName: c.IdPName});
 };
