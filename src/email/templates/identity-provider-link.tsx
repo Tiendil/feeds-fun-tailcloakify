@@ -26,11 +26,11 @@ export const Template = ({ locale, t }: TemplateProps) => (
     <EmailLayout
         preview={t("identity-provider-link.messagePreview")}
         locale={locale}
-        disclaimer={
+      disclaimer={
           <p style={{...c.styleParagraph, marginTop: "0"}}>
-            {t("identity-provider-link.disclaimer", {realmName: c.realmName, identityProviderDisplayName: c.IdPName})}
+            {t("identity-provider-link.disclaimer")}
           </p>
-        }
+         }
     >
       {/*Can not use Heading here, because it render ALL APPERCASE in text mode
          Which breaks the Keycloak variables (they are case sensitive)*/}
@@ -39,11 +39,15 @@ export const Template = ({ locale, t }: TemplateProps) => (
       </Text>
         <Text style={c.styleParagraph}>
           <p style={c.styleParagraph}>
-            {t("identity-provider-link.messageBody", {
+            {t("identity-provider-link.messageBody1", {
               realmName: c.realmName,
               identityProviderDisplayName: c.IdPName,
               username: c.IdPContextUsername
             })}
+          </p>
+
+          <p style={c.styleParagraph}>
+            {t("identity-provider-link.messageBody2")}
           </p>
 
           <p style={c.styleParagraph}>
