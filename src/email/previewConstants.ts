@@ -31,3 +31,16 @@ export const styleBodyHeader = {
   marginTop: 0,
   textAlign: "center" as const,
 };
+
+export const styleButton = {
+  ...styleParagraph,
+  background: '#059669', // tailwind bg-emerald-600 like for the "register" button
+  fontWeight: '700',
+  textDecoration: 'none',
+  padding: '1rem 2rem',
+  color: '#ffffff',
+  display: 'block',
+  borderRadius: '10px',
+  width: 'fit-content',
+  margin: '1.5rem auto'
+}

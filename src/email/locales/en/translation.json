@@ -90,7 +90,7 @@
     "messageSubject": "Linking {identityProviderDisplayName} account",
     "messagePreview": "Someone wants to link your {realmName} account",
     "messageBody": "Someone wants to link your {realmName} account with {identityProviderDisplayName} account of user {username}. If this was you, click the link below to link accounts.",
-    "messageLink": "Link to confirm account linking.",
+    "messageLink": "Link accounts",
     "linkExpiry": "This link will expire within {linkExpiration}.",
     "disclaimer": "If you don't want to link account, you can safely ignore this message. If you link accounts, you will be able to login to {realmName} through {identityProviderDisplayName}."
   },

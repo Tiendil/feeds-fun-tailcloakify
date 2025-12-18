@@ -43,21 +43,7 @@ export const Template = ({ locale, t }: TemplateProps) => (
       <Text style={c.styleParagraph}>
             <p style={c.styleParagraph}>{t("magic-link-email.preButtonMessage")}</p>
             <p style={c.styleParagraph}>
-              <a href={c.magicLink}
-                style={{
-                  ...c.styleParagraph,
-                  background: '#059669', // tailwind bg-emerald-600 like for the "register" button
-                  fontWeight: '700',
-                  textDecoration: 'none',
-                  padding: '1rem 2rem',
-                  color: '#ffffff',
-                  display: 'block',
-                  borderRadius: '10px',
-                  width: 'fit-content',
-                  margin: '1.5rem auto'
-                }}
-                rel="notrack" // disable links rewriting by mailjet.com
-              >
+              <a href={c.magicLink} style={c.styleButton} rel="notrack">
                 {t("magic-link-email.magicLinkButton")}
               </a>
             </p>

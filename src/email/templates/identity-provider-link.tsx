@@ -28,7 +28,7 @@ export const Template = ({ locale, t }: TemplateProps) => (
         locale={locale}
         disclaimer={
           <p style={{...c.styleParagraph, marginTop: "0"}}>
-            {t("identity-provider-link.disclaimer", {realmName: c.realmName,identityProviderDisplayName: exp("identityProviderDisplayName")})}
+            {t("identity-provider-link.disclaimer", {realmName: c.realmName, identityProviderDisplayName: c.IdPName})}
           </p>
         }
     >
@@ -47,7 +47,7 @@ export const Template = ({ locale, t }: TemplateProps) => (
           </p>
 
           <p style={c.styleParagraph}>
-            <a href={exp("link")} rel="notrack">{t("identity-provider-link.messageLink")}</a>
+            <a href={exp("link")} style={c.styleButton} rel="notrack">{t("identity-provider-link.messageLink")}</a>
           </p>
 
           <p style={c.styleParagraph}>
