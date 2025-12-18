@@ -3,6 +3,7 @@
 import { createVariablesHelper } from "keycloakify-emails/variables";
 
 const { exp } = createVariablesHelper("email-test.ftl");
+const { exp: expIdP } = createVariablesHelper("identity-provider-link.ftl");
 
 const _isPreview = import.meta.isJsxEmailPreview;
 
@@ -15,8 +16,8 @@ export const realmName = _isPreview ? _projectName : exp("realmName");
 export const contactEmail = _contactEmail;
 export const magicLink = _isPreview ? _magicLinkExample : (exp as any)("magicLink");
 
-export const IdPName = _isPreview ? "Google" : exp("identityProviderDisplayName");
-export const IdPContextUsername = _isPreview ? "test-user@example.com" :  exp("identityProviderContext.username");
+export const IdPName = _isPreview ? "Google" : expIdP("identityProviderDisplayName");
+export const IdPContextUsername = _isPreview ? "test-user@example.com" :  expIdP("identityProviderContext.username");
 export const IdPExpriation = _isPreview ? "5 minutes" : "${linkExpirationFormatter(linkExpiration)}";
 
 export const styleParagraph = {

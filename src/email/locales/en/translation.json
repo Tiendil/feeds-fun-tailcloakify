@@ -87,7 +87,7 @@
   },
   "identity-provider-link": {
     "title": "Linking {identityProviderDisplayName} account",
-    "messageSubject": "Linking {identityProviderDisplayName} account",
+    "messageSubject": "Confirm account linking",
     "messagePreview": "Someone wants to link your {realmName} account",
     "messageBody1": "Someone requested to link your {realmName} account with {identityProviderDisplayName} account {username}.",
     "messageBody2": "If this was you, click the link below to link accounts.",
