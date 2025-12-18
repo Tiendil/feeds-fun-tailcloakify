@@ -25,6 +25,8 @@ docker compose up build-theme
 # Pages — Stories
 
 - `login/pages/LoginUsername.tsx` — `login-username.ftl/Feeds Fun`
+- `login/pages/LoginIdpLinkEmail.tsx` — `login-idp-link-email.ftl/Default`
+- `login/pages/LoginVerifyEmail.tsx` — `login-verify-email.ftl/*`
 - `login/pages/Error.tsx` — `error.ftl`
 - `login/pages/p2-inc/keycloak-magic-link/ViewEmail.tsx` — `plugins/p2-inc/keycloak-magic-link/view-email.ftl`
 - `login/pages/p2-inc/keycloak-magic-link/EmailConfirmation.tsx` — `plugins/p2-inc/keycloak-magic-link/email-confirmation.ftl`

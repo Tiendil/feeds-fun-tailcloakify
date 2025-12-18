@@ -1,5 +1,5 @@
 // THIS FILE CHANGED FOR FEEDS.FUN NEEDS:
-// - added subheader under the main header
+// - extensive restyling
 import { useState } from "react";
 import { kcSanitize } from "keycloakify/lib/kcSanitize";
 import { clsx } from "keycloakify/tools/clsx";
@@ -7,12 +7,13 @@ import { getKcClsx } from "keycloakify/login/lib/kcClsx";
 import type { PageProps } from "keycloakify/login/pages/PageProps";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
+import * as c from "../constants";
 import useProviderLogos from "../useProviderLogos";
 import { useScript } from "keycloakify/login/pages/LoginUsername.useScript";
 
 function agreementLink(text: string, url: string) {
   // TODO: target='_blank'  is removed by kcSanitize, we should fin a workaround
-  return `<a href='${url}' class='whitespace-nowrap text-primary-600 hover:text-primary-600' rel='noopener noreferrer'>${text}</a>`;
+  return `<a href='${url}' class='${c.anchorClasses} whitespace-nowrap' rel='noopener noreferrer'>${text}</a>`;
 }
 
 export default function LoginUsername(props: PageProps<Extract<KcContext, { pageId: "login-username.ftl" }>, I18n>) {
@@ -49,7 +50,7 @@ export default function LoginUsername(props: PageProps<Extract<KcContext, { page
             headerNode={
               <>
                 <span>{msg("doLogIn")}</span>
-                <span className="mt-2 block text-sm text-secondary-600">{msg("doLogInSubtitle")}</span>
+                <span className={c.subheaderClasses}>{msg("doLogInSubtitle")}</span>
               </>
             }
             /////////////////////
