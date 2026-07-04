@@ -38,6 +38,7 @@ const { useI18n, ofTypeI18n } = i18nBuilder
             doLogInPrivacyPolicy: "Privacy Policy",
             doLogInTermsOfServiceLink: "https://feeds.fun/terms",
             doLogInPrivacyPolicyLink: "https://feeds.fun/privacy",
+            emailLinkIdp1: "We sent you an email with instructions to link {0} account {1} with your {2} account.",
             magicLinkFailLogin: "Login link expired",
             magicLinkFailRestart: "Request new link",
             viewEmailChangeEmail: "change email",

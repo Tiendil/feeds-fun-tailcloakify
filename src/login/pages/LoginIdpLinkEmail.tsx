@@ -1,6 +1,9 @@
+// THIS FILE CHANGED FOR FEEDS.FUN NEEDS:
+// - extensive restyling
 import type { PageProps } from "keycloakify/login/pages/PageProps";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
+import * as c from "../constants";
 
 export default function LoginIdpLinkEmail(
     props: PageProps<
@@ -25,27 +28,23 @@ export default function LoginIdpLinkEmail(
             i18n={i18n}
             doUseDefaultCss={doUseDefaultCss}
             classes={classes}
-            headerNode={msg("emailLinkIdpTitle", idpAlias)}
-        >
-            <p id="instruction1" className="instruction">
+          headerNode={
+            <>
+              <span>{msg("emailLinkIdpTitle", idpAlias)}</span>
+              <span className={c.subheaderClasses}>
                 {msg("emailLinkIdp1", idpAlias, brokerContext.username, realm.displayName)}
-            </p>
-            <br />
-            <p id="instruction2" className="instruction">
-                {msg("emailLinkIdp2")} <br />
-                <a href={url.loginAction} className={"text-primary-600 hover:text-primary-500 inline-flex no-underline hover:no-underline"}>
-                    {msg("doClickHere")}
-                </a>{" "}
-                {msg("emailLinkIdp3")}
-            </p>
-            <br />
-            <p id="instruction3" className="instruction">
-                {msg("emailLinkIdp4")} <br />
-                <a href={url.loginAction} className={"text-primary-600 hover:text-primary-500 inline-flex no-underline hover:no-underline"}>
-                    {msg("doClickHere")}
-                </a>{" "}
-                {msg("emailLinkIdp5")}
-            </p>
+              </span>
+            </>
+          }
+        >
+          <ul className={c.footerNotesListClasses}>
+            <li>{msg("emailLinkIdp2")}</li>
+            <li><a href={url.loginAction} className={c.anchorClasses}>{msg("doClickHere")}</a>{" "}{msg("emailLinkIdp3")}</li>
+            <li>&nbsp;</li>
+            <li>{msg("emailLinkIdp4")}</li>
+            <li><a href={url.loginAction} className={c.anchorClasses}>{msg("doClickHere")}</a>{" "}{msg("emailLinkIdp5")}</li>
+          </ul>
+
         </Template>
     );
 }

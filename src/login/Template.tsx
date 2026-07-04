@@ -262,7 +262,7 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
                                     {message.type === "info" && <span className={kcClsx("kcFeedbackInfoIcon")}></span>}
                                 </div>
                                 <span
-                                    className={kcClsx("kcAlertTitleClass")}
+                                    className={kcClsx("kcAlertTitleClass") + " !font-semibold"}
                                     dangerouslySetInnerHTML={{
                                         __html: kcSanitize(message.summary)
                                     }}

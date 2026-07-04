@@ -3,6 +3,7 @@
 import type { PageProps } from "keycloakify/login/pages/PageProps";
 import type { KcContext } from "../../../KcContext";
 import type { I18n } from "../../../i18n";
+import * as c from "../../../constants";
 
 export default function ViewEmail(props: PageProps<Extract<KcContext, { pageId: "view-email.ftl" }>, I18n>) {
     const { kcContext, i18n, doUseDefaultCss, Template, classes } = props;
@@ -28,18 +29,13 @@ export default function ViewEmail(props: PageProps<Extract<KcContext, { pageId: 
             </div>
 
             <div className="mt-1 text-sm">
-              <a
-                id="reset-login"
-                href={url.loginRestartFlowUrl}
-                className="text-blue-700 hover:underline underline-offset-2
-                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
-              >
+              <a id="reset-login" href={url.loginRestartFlowUrl} className={c.anchorClasses}>
                 {msg("viewEmailChangeEmail")}
               </a>
             </div>
           </div>
 
-          <ul className="mx-auto max-w-xs space-y-1 text-xs text-left text-gray-900">
+          <ul className={c.footerNotesListClasses}>
             <li>{msg("viewEmailDeliverTime")}</li>
             <li>{msg("viewEmailSpamNote")}</li>
             <li>{msg("viewEmailBrowserNote")}</li>
